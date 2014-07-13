@@ -1,29 +1,17 @@
 <?php
 
 /*
- * This is the main application framework which uses a simple MVC model.
- * 
- * On require vs include:
- * require will produce a fatal error (E_COMPILE_ERROR) and stop the script
- * include will only produce a warning (E_WARNING) and the script will continue
- */
+* On require vs include:
+* require will produce a fatal error (E_COMPILE_ERROR) and stop the script
+* include will only produce a warning (E_WARNING) and the script will continue
+*/
 
-require_once 'config.php' ;
-require_once DIR_LIB . 'Template.php';
+require_once 'eyeQTester.class.php' ;
 
-$model = null;
-
-// List of known controllers, only actions for them are allowed
-$controllers = array(
-	'settings' => 'settings.php',
-);
-
-// Controller (and model)
-if (isset($_GET['action']) && isset($controllers[$_GET['action']])) {
-	require_once DIR_CTLS . $controllers[$_GET['action']];
-} else {
-	require_once DIR_CTLS . 'dummy.php';
-}
+// Create app framework ans run select controller
+$eyeQTester = new VD\eyeQTester();
+$eyeQTester->prepare();
+$eyeQTester->render();
 
 // View
 if ($model != null) {
