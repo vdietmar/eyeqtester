@@ -77,7 +77,7 @@ class Request {
 	private function translateReponseHeader() {
 		
 		$rh = get_headers($url, 1);
-		sprintf('%s/ '$format)
+		//sprintf('%s/ '$format)
 	}
 	
 	
