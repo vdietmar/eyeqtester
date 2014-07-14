@@ -1,12 +1,15 @@
 <?php
 
-require_once DIR_LIB . 'Model.php';
-require_once DIR_LIB . 'EyeqWebAPI.php';
+require_once require_once dirname(dirname( __FILE__ )) . '/VD/MVC/MVC.class.php'; . 'VD/MVC/MVC.class.php';
+require_once DIR_BASE . 'Gracenote/WebAPI/Gracenote.class.php';
+
+// Defaults
+if (!defined("VD_DEBUG")) { define("VD_DEBUG", false); }
 
 /*
  * TODO Need to separate page, nav and Co. from the real settings
  */
-class Settings extends Model {
+class Settings extends VD\MVC\VDModel {
 	/*
 	 * Later when having multiple settings sections make this
 	 * depending from section via function parameter.

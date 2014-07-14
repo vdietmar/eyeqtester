@@ -6,10 +6,13 @@
 * include will only produce a warning (E_WARNING) and the script will continue
 */
 
-require_once 'eyeQTester.class.php' ;
+require_once dirname( __FILE__ ) . 'eyeQTester.class.php' ;
+
+define("VD_DEBUG", false);
+define("GN_DEBUG", false);
 
 // Create app framework ans run select controller
-$eyeQTester = new VD\eyeQTester();
+$eyeQTester = new $eyeQTester();
 $eyeQTester->prepare();
 $eyeQTester->render();
 

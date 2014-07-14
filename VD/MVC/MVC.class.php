@@ -4,6 +4,27 @@ namespace VD\MVC;
 // Defaults
 if (!defined("VD_DEBUG")) { define("VD_DEBUG", false); }
 
+class VDController {
+	private $_model;
+
+	function __construct() {
+		$model = new VD\MVC\VDModel();
+	}
+
+	function __destruct() {
+
+	}
+
+	function run()
+	{
+		return true;
+	}
+
+	function getModel() {
+		return $this->_model;
+	}
+}
+
 class VDModel {
 	protected $data = array();
 	private $alerts = array();
